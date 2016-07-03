@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'byebug'
+if __FILE__ == $PROGRAM_NAME
+  raise "usage: gen <filename>" unless ARGV.length == 1
+  File.new("./lib/#{ARGV[0]}.rb", "w")
+  IO.write("./spec/#{ARGV[0]}_spec.rb", "require \"rspec\"\nrequire \"#{ARGV[0]}\"\n\n")
+end
