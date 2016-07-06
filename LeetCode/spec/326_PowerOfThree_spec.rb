@@ -9,6 +9,12 @@ describe "#is_power_of_three(n)" do
     it "returns false" do
       expect(is_power_of_three(2)).to eq(false)
     end
+    it "returns false" do
+      expect(is_power_of_three(-3)).to eq(false)
+    end
+    it "returns false" do
+      expect(is_power_of_three(244)).to eq(false)
+    end
   end
 
   context "when given a number that is a power of three" do
@@ -23,6 +29,9 @@ describe "#is_power_of_three(n)" do
     end
     it "returns true" do
       expect(is_power_of_three(27)).to eq(true)
+    end
+    it "returns true" do
+      expect(is_power_of_three(243)).to eq(true)
     end
   end
 end
