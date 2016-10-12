@@ -6,7 +6,12 @@ describe QuickSort do
       arr = [3, 1, 5, 2, 4]
       pivot_idx = QuickSort.partition(arr, 0, 5)
 
-      expect(arr).to eq([1, 2, 3, 5, 4])
+      # NOTE: original AA spec. Performs 3 way swap per partition
+      # expect(arr).to eq([1, 2, 3, 5, 4])
+
+      # I changed spec to use a partitioning method that works with 2 way swap
+      # per partition, see: http://me.dt.in.th/page/Quicksort/
+      expect(arr).to eq([2, 1, 3, 5, 4])
       expect(pivot_idx).to eq(2)
     end
 
@@ -14,7 +19,12 @@ describe QuickSort do
       arr = [4, 3, 2, 1, 7, 5, 8, 6]
       pivot_idx = QuickSort.partition(arr, 4, 4)
       # Should not touch left half of the array
-      expect(arr).to eq([4, 3, 2, 1, 5, 6, 7, 8])
+
+      # original AA spec
+      # expect(arr).to eq([4, 3, 2, 1, 5, 6, 7, 8])
+
+      # Using partitioning method mentioned above
+      expect(arr).to eq([4, 3, 2, 1, 6, 5, 7, 8])
       expect(pivot_idx).to eq(6)
     end
   end
